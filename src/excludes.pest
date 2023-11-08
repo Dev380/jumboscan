@@ -1,0 +1,9 @@
+octet = { ASCII_DIGIT ~ ASCII_DIGIT? ~ ASCII_DIGIT? }
+address = @{ octet ~ "." ~ octet ~ "." ~ octet ~ "." ~ octet }
+mask = { ASCII_DIGIT ~ ASCII_DIGIT? }
+cidr = { address ~ "/" ~ mask }
+range = { address ~ "-" ~ address }
+file = { SOI ~ ((cidr | range | address){,1} ~ NEWLINE )* ~ EOI }
+
+WHITESPACE = _{ " " }
+COMMENT = _{ "#" ~ (!NEWLINE ~ ANY)* }

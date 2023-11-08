@@ -1,0 +1,5 @@
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "target-feature=+avx2"]
+
+[build]
+rustdocflags = ["-C", "target-feature=+avx2"]

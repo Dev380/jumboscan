@@ -1,0 +1,4 @@
+mac_octet = { ASCII_HEX_DIGIT{2} }
+ietf_mac = { (mac_octet ~ ":" ){5} ~ mac_octet }
+ieee_mac = { (mac_octet ~ "-"){5} ~ mac_octet }
+mac = { SOI ~ ietf_mac | ieee_mac ~ EOI }
